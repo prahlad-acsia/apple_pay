@@ -60,7 +60,7 @@ let handle_click = (event) => {
 document.addEventListener("click", handle_click);
 const paypal_sdk_url = "https://www.paypal.com/sdk/js";
 const client_id =
-  "AQdhXCLPjQQZoMZL9f-TIEqEbjiTh42rSijhXwaRB5ADPHM-rR0XQ5OxDtOh8djXy13GW6tMycy5M6Il";
+  "AXz-dGh79CsTNIbiioVdx79kuH3OydE4ze4tFtiGTD8TQBXiUR7uenThtNGebUmRVybjz5oYsTFnCnBe";
 const currency = "USD";
 const intent = "capture";
 
@@ -437,7 +437,7 @@ is_user_logged_in()
         total: {
           label: "My Demo Company",
           type: "final",
-          amount: "100.0",
+          amount: "10.0",
         },
       };
       current_ap_session = new ApplePaySession(4, payment_request);
@@ -449,3 +449,5 @@ is_user_logged_in()
   .catch((error) => {
     reset_purchase_button();
   });
+  console.log("test--");
+  
