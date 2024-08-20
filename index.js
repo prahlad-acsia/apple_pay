@@ -42,6 +42,7 @@ app.post('/create_order', (req, res) => {
                     }
                 }]
             };
+            
             const data = JSON.stringify(order_data_json)
 
             fetch(endpoint_url + '/v2/checkout/orders', { //https://developer.paypal.com/docs/api/orders/v2/#orders_create
