@@ -60,7 +60,7 @@ let handle_click = (event) => {
 document.addEventListener("click", handle_click);
 const paypal_sdk_url = "https://www.paypal.com/sdk/js";
 const client_id =
-  "AXz-dGh79CsTNIbiioVdx79kuH3OydE4ze4tFtiGTD8TQBXiUR7uenThtNGebUmRVybjz5oYsTFnCnBe";
+  "ATuPCjs8is4wbD_zwNmsueZWbVc0c5lDJgQWTnmzvTGMLbhw0JRhkmm1SKtrMppwEByJKP1bFsb2mOkF";
 const currency = "USD";
 const intent = "capture";
 
