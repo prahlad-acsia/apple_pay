@@ -99,7 +99,7 @@ let display_success_message = (object) => {
 
 //PayPal Code
 is_user_logged_in()
-  .then(() => {
+  .then(() => {debugger
     return get_client_token();
   })
   .then((client_token) => {
@@ -117,7 +117,7 @@ is_user_logged_in()
       "data-client-token": client_token,
     }); //https://developer.paypal.com/sdk/js/configuration/#link-configureandcustomizeyourintegration
   })
-  .then(() => {
+  .then(() => {debugger
     //Handle loading spinner
     document.getElementById("loading").classList.add("hide");
     document.getElementById("content").classList.remove("hide");
@@ -302,7 +302,7 @@ is_user_logged_in()
                 });
             })
             .catch((err) => {
-              console.log(err);
+              console.log("Error digita --",err);
               reset_purchase_button();
               display_error_alert();
             });
@@ -344,7 +344,7 @@ is_user_logged_in()
           })
           .catch((applepay_config_error) => {
             console.error("Error while fetching Apple Pay configuration:");
-            console.error(applepay_config_error);
+            console.error("apple pay config ",applepay_config_error);
           });
       })
       .catch((error) => {
@@ -422,7 +422,7 @@ is_user_logged_in()
           current_ap_session.completeMerchantValidation(validateResult.merchantSession);
         })
         .catch((validateError) => {
-          console.error(validateError);
+          console.error("validate error->",validateError);
           current_ap_session.abort();
         });
     };
