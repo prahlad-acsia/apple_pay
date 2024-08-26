@@ -194,7 +194,7 @@ is_user_logged_in()
       // Renders card fields
       paypal_hosted_fields = paypal.HostedFields.render({
         // Call your server to set up the transaction
-        createOrder: () => {
+        createOrder: () => {debugger
           return fetch("/create_order", {
             method: "post",
             headers: { "Content-Type": "application/json; charset=utf-8" },
@@ -232,7 +232,7 @@ is_user_logged_in()
             placeholder: "MM/YY",
           },
         },
-      }).then((card_fields) => {
+      }).then((card_fields) => {debugger
         document.querySelector("#card-form").addEventListener("submit", (event) => {
           event.preventDefault();
           document
@@ -268,7 +268,7 @@ is_user_logged_in()
               }
               //Customer Data END
             )
-            .then(() => {
+            .then(() => {debugger
               return fetch("/complete_order", {
                 method: "post",
                 headers: { "Content-Type": "application/json; charset=utf-8" },
@@ -301,7 +301,7 @@ is_user_logged_in()
                   display_error_alert();
                 });
             })
-            .catch((err) => {
+            .catch((err) => {debugger
               console.log("Error digita --",err);
               reset_purchase_button();
               display_error_alert();
@@ -310,7 +310,7 @@ is_user_logged_in()
       });
     }
     //ApplePay Code
-    let check_applepay = async () => {
+    let check_applepay = async () => {debugger
       return new Promise((resolve, reject) => {
         let error_message = "";
         if (!window.ApplePaySession) {
@@ -328,7 +328,7 @@ is_user_logged_in()
     };
     //Begin Displaying of ApplePay Button
     check_applepay()
-      .then(() => {
+      .then(() => {debugger
         applepay = paypal.Applepay();
         applepay
           .config()
@@ -342,7 +342,7 @@ is_user_logged_in()
                 .addEventListener("click", handle_applepay_clicked);
             }
           })
-          .catch((applepay_config_error) => {
+          .catch((applepay_config_error) => {debugger
             console.error("Error while fetching Apple Pay configuration:");
             console.error("apple pay config ",applepay_config_error);
           });
@@ -350,7 +350,7 @@ is_user_logged_in()
       .catch((error) => {
         console.error("catch--",error);
       });
-    let ap_payment_authed = (event) => {
+    let ap_payment_authed = (event) => {debugger
       applepay_payment_event = event.payment;
       fetch("/create_order", {
         method: "post",
@@ -358,7 +358,7 @@ is_user_logged_in()
         body: JSON.stringify({ intent: intent }),
       })
         .then((response) => response.json())
-        .then((pp_data) => {
+        .then((pp_data) => {debugger
           pp_order_id = pp_data.id;
           apple_pay_email = applepay_payment_event.shippingContact.emailAddress;
           applepay
@@ -367,7 +367,7 @@ is_user_logged_in()
               token: applepay_payment_event.token,
               billingContact: applepay_payment_event.billingContact,
             })
-            .then((confirmResult) => {
+            .then((confirmResult) => {debugger
               fetch("/complete_order", {
                 method: "post",
                 headers: { "Content-Type": "application/json; charset=utf-8" },
@@ -402,7 +402,7 @@ is_user_logged_in()
                   display_error_alert();
                 });
             })
-            .catch((confirmError) => {
+            .catch((confirmError) => {debugger
               if (confirmError) {
                 console.error("Error confirming order with applepay token");
                 console.error(confirmError);
@@ -412,7 +412,7 @@ is_user_logged_in()
             });
         });
     };
-    let ap_validate = (event) => {
+    let ap_validate = (event) => {debugger
       applepay
         .validateMerchant({
           validationUrl: event.validationURL,
@@ -426,7 +426,7 @@ is_user_logged_in()
           current_ap_session.abort();
         });
     };
-    let handle_applepay_clicked = (event) => {
+    let handle_applepay_clicked = (event) => {debugger
       const payment_request = {
         countryCode: global_apple_pay_config.countryCode,
         merchantCapabilities: global_apple_pay_config.merchantCapabilities,
