@@ -368,6 +368,14 @@ is_user_logged_in()
               billingContact: applepay_payment_event.billingContact,
             })
             .then((confirmResult) => {
+              console.log("confirmResult-->",confirmResult);
+              console.log("complete order request-->",{
+                intent: intent,
+                order_id: pp_order_id,
+                email: apple_pay_email,
+              });
+              
+              
               fetch("/complete_order", {
                 method: "post",
                 headers: { "Content-Type": "application/json; charset=utf-8" },
@@ -379,6 +387,8 @@ is_user_logged_in()
               })
                 .then((response) => response.json())
                 .then((order_details) => {
+                  console.log("order_details-->",order_details);
+                  
                   let intent_object = intent === "authorize" ? "authorizations" : "captures";
                   if (
                     order_details.purchase_units[0].payments[intent_object][0].status ===
@@ -416,7 +426,7 @@ is_user_logged_in()
       applepay
         .validateMerchant({
           validationUrl: event.validationURL,
-          displayName: "My Demo Company",
+          displayName: "Schon",
         })
         .then((validateResult) => {
           current_ap_session.completeMerchantValidation(validateResult.merchantSession);
@@ -435,7 +445,7 @@ is_user_logged_in()
         requiredShippingContactFields: ["name", "phone", "email", "postalAddress"],
         requiredBillingContactFields: ["postalAddress"],
         total: {
-          label: "My Demo Company",
+          label: "Schon",
           type: "final",
           amount: "1.0",
         },
