@@ -162,6 +162,8 @@ is_user_logged_in()
           .then((response) => response.json())
           .then((order_details) => {
             let intent_object = intent === "authorize" ? "authorizations" : "captures";
+            console.log("complete order 1-->",order_details.purchase_units[0].payments[intent_object][0].status);
+            
             if (order_details.purchase_units[0].payments[intent_object][0].status === "COMPLETED") {
               display_success_message({
                 order_details: order_details,
@@ -281,6 +283,8 @@ is_user_logged_in()
                 .then((response) => response.json())
                 .then((order_details) => {
                   let intent_object = intent === "authorize" ? "authorizations" : "captures";
+                  console.log("complete order 2 -->", order_details.purchase_units[0].payments[intent_object][0].status);
+                  
                   if (
                     order_details.purchase_units[0].payments[intent_object][0].status ===
                     "COMPLETED"
@@ -390,6 +394,8 @@ is_user_logged_in()
                   console.log("order_details-->",order_details);
                   
                   let intent_object = intent === "authorize" ? "authorizations" : "captures";
+                  console.log("complete order 3-->",order_details.purchase_units[0].payments[intent_object][0].status);
+                  
                   if (
                     order_details.purchase_units[0].payments[intent_object][0].status ===
                     "COMPLETED"
