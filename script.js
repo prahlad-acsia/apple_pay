@@ -162,7 +162,7 @@ is_user_logged_in()
           .then((response) => response.json())
           .then((order_details) => {
             let intent_object = intent === "authorize" ? "authorizations" : "captures";
-            console.log("complete order 1-->",order_details.purchase_units[0].payments[intent_object][0].status);
+            console.error("complete order 1-->",order_details.purchase_units[0].payments[intent_object][0].status);
             
             if (order_details.purchase_units[0].payments[intent_object][0].status === "COMPLETED") {
               display_success_message({
@@ -283,7 +283,7 @@ is_user_logged_in()
                 .then((response) => response.json())
                 .then((order_details) => {
                   let intent_object = intent === "authorize" ? "authorizations" : "captures";
-                  console.log("complete order 2 -->", order_details.purchase_units[0].payments[intent_object][0].status);
+                  console.error("complete order 2 -->", order_details.purchase_units[0].payments[intent_object][0].status);
                   
                   if (
                     order_details.purchase_units[0].payments[intent_object][0].status ===
@@ -294,7 +294,7 @@ is_user_logged_in()
                       paypal_buttons: paypal_buttons,
                     });
                   } else {
-                    console.log(order_details);
+                    console.error(order_details);
                     throw error(
                       "payment was not completed, please view console for more information"
                     );
@@ -372,8 +372,8 @@ is_user_logged_in()
               billingContact: applepay_payment_event.billingContact,
             })
             .then((confirmResult) => {
-              console.log("confirmResult-->",confirmResult);
-              console.log("complete order request-->",{
+              console.error("confirmResult-->",confirmResult);
+              console.error("complete order request-->",{
                 intent: intent,
                 order_id: pp_order_id,
                 email: apple_pay_email,
@@ -391,10 +391,11 @@ is_user_logged_in()
               })
                 .then((response) => response.json())
                 .then((order_details) => {
-                  console.log("order_details-->",order_details);
+                  console.error("order_details-->",order_details);
                   
                   let intent_object = intent === "authorize" ? "authorizations" : "captures";
-                  console.log("complete order 3-->",order_details.purchase_units[0].payments[intent_object][0].status);
+
+                  console.error("complete order 3-->",order_details.purchase_units[0].payments[intent_object][0].status);
                   
                   if (
                     order_details.purchase_units[0].payments[intent_object][0].status ===
