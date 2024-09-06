@@ -133,11 +133,7 @@ app.post("/get_client_token", (req, res) => {
           },
           body: payload,
         })
-          .then((response) => {
-            console.log("muy->",response.json());
-            
-            response.json()
-      })
+          .then((response) => response.json())
           .then((data) => res.send(data.client_token));
       })
       .catch((error) => {
