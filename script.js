@@ -473,5 +473,5 @@ is_user_logged_in()
   .catch((error) => {
     reset_purchase_button();
   });
-  console.log("test--",order_details.purchase_units[0].payments[intent_object][0].status);
+  console.log("test--");
   
