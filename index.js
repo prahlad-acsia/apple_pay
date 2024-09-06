@@ -118,29 +118,29 @@ app.post('/complete_order', (req, res) => {
  * @returns {object} The client token as a JSON response.
  * @throws {Error} If there is an error retrieving the client token.
  */
-app.post("/get_client_token", (req, res) => {
-    get_access_token()
-      .then((access_token) => {
-        const payload = req.body.customer_id
-          ? JSON.stringify({ customer_id: req.body.customer_id })
-          : null;
+// app.post("/get_client_token", (req, res) => {
+//     get_access_token()
+//       .then((access_token) => {
+//         const payload = req.body.customer_id
+//           ? JSON.stringify({ customer_id: req.body.customer_id })
+//           : null;
   
-        fetch(endpoint_url + "/v1/identity/generate-token", {
-          method: "post",
-          headers: {
-            Authorization: `Bearer ${access_token}`,
-            "Content-Type": "application/json",
-          },
-          body: payload,
-        })
-          .then((response) => response.json())
-          .then((data) => res.send(data.client_token));
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        res.status(500).send("An error occurred while processing the request.");
-      });
-  });
+//         fetch(endpoint_url + "/v1/identity/generate-token", {
+//           method: "post",
+//           headers: {
+//             Authorization: `Bearer ${access_token}`,
+//             "Content-Type": "application/json",
+//           },
+//           body: payload,
+//         })
+//           .then((response) => response.json())
+//           .then((data) => res.send(data.client_token));
+//       })
+//       .catch((error) => {
+//         console.error("Error:", error);
+//         res.status(500).send("An error occurred while processing the request.");
+//       });
+//   });
 
 app.get("/.well-known/apple-developer-merchantid-domain-association", (req, res) => {
   res.sendFile(process.cwd() + '/apple-developer-merchantid-domain-association');
