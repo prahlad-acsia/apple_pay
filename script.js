@@ -34,20 +34,21 @@ const is_user_logged_in = () => {
 };
 
 const get_client_token = () => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const response = await fetch("/get_client_token", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ customer_id: current_customer_id }),
-      });
+  return "hello";
+  // return new Promise(async (resolve, reject) => {
+  //   try {
+  //     const response = await fetch("/get_client_token", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ customer_id: current_customer_id }),
+  //     });
 
-      const client_token = await response.text();
-      resolve(client_token);
-    } catch (error) {
-      reject(error);
-    }
-  });
+  //     const client_token = await response.text();
+  //     resolve(client_token);
+  //   } catch (error) {
+  //     reject(error);
+  //   }
+  // });
 };
 let handle_close = (event) => {
   event.target.closest(".ms-alert").remove();
