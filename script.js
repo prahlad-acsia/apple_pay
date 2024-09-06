@@ -361,8 +361,12 @@ is_user_logged_in()
         headers: { "Content-Type": "application/json; charset=utf-8" },
         body: JSON.stringify({ intent: intent }),
       })
-        .then((response) => response.json())
+        .then((response) => 
+          {
+            console.log("create order response.json()-->",response.json());
+            response.json()})
         .then((pp_data) => {
+          console.log("pp_data-->",pp_data);
           pp_order_id = pp_data.id;
           apple_pay_email = applepay_payment_event.shippingContact.emailAddress;
           applepay
@@ -389,7 +393,10 @@ is_user_logged_in()
                   email: apple_pay_email,
                 }),
               })
-                .then((response) => response.json())
+                .then((response) => {
+                  console.log("complete order response.json()--> ",response.json());
+                  response.json()}
+                )
                 .then((order_details) => {
                   console.error("order_details-->",order_details);
                   
