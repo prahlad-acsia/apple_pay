@@ -164,9 +164,9 @@ app.get('/script.js', (req, res) => {
     res.sendFile(process.cwd() + '/script.js');
 });
 
-console.log("env__",environment);
+console.log("env__->",environment);
 console.log("client id->",client_id);
-
+console.log("client secret->",client_secret);
 
 //PayPal Developer YouTube Video:
 //How to Retrieve an API Access Token (Node.js)
