@@ -370,7 +370,7 @@ is_user_logged_in()
             response.json()})
         .then((pp_data) => {
           console.log("pp_data-->",pp_data);
-          pp_order_id = pp_data.result.id;
+          pp_order_id = pp_data?.id;
           apple_pay_email = applepay_payment_event.shippingContact.emailAddress;
           applepay
             .confirmOrder({
