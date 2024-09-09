@@ -34,6 +34,7 @@ const is_user_logged_in = () => {
 };
 
 const get_client_token = () => {
+  
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch("/get_client_token", {

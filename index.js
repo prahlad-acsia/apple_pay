@@ -163,7 +163,6 @@ app.get('/script.js', (req, res) => {
 });
 
 console.log("env__",environment);
-//Send email with SendGrid END
 
 //PayPal Developer YouTube Video:
 //How to Retrieve an API Access Token (Node.js)
