@@ -440,6 +440,8 @@ is_user_logged_in()
         });
     };
     let ap_validate = (event) => {
+      console.log("merchant valideate ->",event);
+      
       applepay
         .validateMerchant({
           validationUrl: event.validationURL,
