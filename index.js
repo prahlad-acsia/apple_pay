@@ -183,14 +183,10 @@ function get_access_token() {
             body: data
         })
         .then(res => 
-            {
-                console.log("res.json()-->",res.json());
-                
+
                 res.json()
-        })
+        )
         .then(json => {
-            console.log("access token",json.access_token);
-            
             return json.access_token;
         })
 }
