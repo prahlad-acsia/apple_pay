@@ -366,7 +366,6 @@ is_user_logged_in()
         .then((response) => 
           {
             console.log("create order response...-->",response);
-            console.log("create order response...resolve-->",resolve(response));
             console.log("create order response.json()-->",response.json());
             response.json()})
         .then((pp_data) => {
