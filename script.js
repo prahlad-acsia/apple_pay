@@ -367,7 +367,7 @@ is_user_logged_in()
           {
             // console.log("create order response...-->",response);
             // console.log("create order response.json()-->",response.json()?.result);
-            response.json()})
+            response.text()})
         .then((pp_data) => {
           console.log("pp_data-->",pp_data);
           pp_order_id = pp_data?.id;
