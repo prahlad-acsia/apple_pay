@@ -13,7 +13,7 @@ app.use(express.urlencoded({
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 const port = process.env.PORT || 3000;
 // const environment = process.env.ENVIRONMENT || 'sandbox';
-const environment = process.env.ENVIRONMENT;
+const environment = process.env.ENVIRONMENT || 'production';
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
 // const endpoint_url = environment === 'sandbox' ? 'https://api-m.sandbox.paypal.com' : 'https://api-m.paypal.com';
@@ -163,6 +163,8 @@ app.get('/script.js', (req, res) => {
 });
 
 console.log("env__",environment);
+console.log("client id->",client_id);
+
 
 //PayPal Developer YouTube Video:
 //How to Retrieve an API Access Token (Node.js)
