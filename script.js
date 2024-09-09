@@ -357,7 +357,7 @@ is_user_logged_in()
       });
     let ap_payment_authed = (event) => {
       applepay_payment_event = event.payment;
-      log("apple auth-->",applepay_payment_event);
+      console.log("apple auth-->",applepay_payment_event);
       fetch("/create_order", {
         method: "post",
         headers: { "Content-Type": "application/json; charset=utf-8" },
