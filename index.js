@@ -15,9 +15,9 @@ const port = process.env.PORT || 3000;
 // const environment = process.env.ENVIRONMENT || 'sandbox';
 const environment = process.env.ENVIRONMENT || 'production';
 // const client_id = process.env.CLIENT_ID;
-const client_id = ATuPCjs8is4wbD_zwNmsueZWbVc0c5lDJgQWTnmzvTGMLbhw0JRhkmm1SKtrMppwEByJKP1bFsb2mOkF;
+const client_id = "ATuPCjs8is4wbD_zwNmsueZWbVc0c5lDJgQWTnmzvTGMLbhw0JRhkmm1SKtrMppwEByJKP1bFsb2mOkF";
 // const client_secret = process.env.CLIENT_SECRET;
-const client_secret = EOlIX1IJ8LME96tKqj63HTTa1MCYjtMeKA5AuekLldsv3iufR1l7rxldPJb_v8XZc9fzovdP8cv2Ktok;
+const client_secret = "EOlIX1IJ8LME96tKqj63HTTa1MCYjtMeKA5AuekLldsv3iufR1l7rxldPJb_v8XZc9fzovdP8cv2Ktok";
 // const endpoint_url = environment === 'sandbox' ? 'https://api-m.sandbox.paypal.com' : 'https://api-m.paypal.com';
 const endpoint_url = 'https://api-m.paypal.com';
 /**
