@@ -375,8 +375,8 @@ is_user_logged_in()
               billingContact: applepay_payment_event.billingContact,
             })
             .then((confirmResult) => {
-              console.error("confirmResult-->",confirmResult);
-              console.error("complete order request-->",{
+              console.log("confirmResult-->",confirmResult);
+              console.log("complete order request-->",{
                 intent: intent,
                 order_id: pp_order_id,
                 email: apple_pay_email,
@@ -396,11 +396,11 @@ is_user_logged_in()
                   response.json()
                 )
                 .then((order_details) => {
-                  console.error("order_details-->",order_details);
+                  console.log("order_details-->",order_details);
                   
                   let intent_object = intent === "authorize" ? "authorizations" : "captures";
 
-                  console.error("complete order 3-->",order_details.purchase_units[0].payments[intent_object][0].status);
+                  console.log("complete order 3-->",order_details.purchase_units[0].payments[intent_object][0].status);
                   
                   if (
                     order_details.purchase_units[0].payments[intent_object][0].status ===
@@ -461,7 +461,7 @@ is_user_logged_in()
         total: {
           label: "Schon",
           type: "final",
-          amount: "1.0",
+          amount: "2.0",
         },
       };
       current_ap_session = new ApplePaySession(4, payment_request);
