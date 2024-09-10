@@ -420,7 +420,7 @@ is_user_logged_in()
                   }
                 })
                 .catch((error) => {
-                  console.log(error);
+                  console.log("error 1->",error);
                   display_error_alert();
                 });
             })
