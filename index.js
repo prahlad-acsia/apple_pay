@@ -100,7 +100,7 @@ app.post('/complete_order', (req, res) => {
                 //     console.log("json",json);
                     
                 //     }
-                //     res.send(json);
+                    res.send(json);
                 }) //Send minimal data to client
         })
         .catch(err => {
