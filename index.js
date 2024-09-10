@@ -92,19 +92,19 @@ app.post('/complete_order', (req, res) => {
                 })
                 .then(res => res.json())
                 .then(json => {
-                    console.log(json);
-                    let intent_object = req.body.intent === "authorize" ? "authorizations" : "captures";
-                    //Remove this if you don't want to send email with SendGrid
-                  if (json.purchase_units[0].payments[intent_object][0].status === "COMPLETED") {
-                    //   send_email_receipt({"id": json.id, "email": req.body.email});
-                    console.log("json",json);
+                    console.log("json error -->",json);
+                //     let intent_object = req.body.intent === "authorize" ? "authorizations" : "captures";
+                //     //Remove this if you don't want to send email with SendGrid
+                //   if (json.purchase_units[0].payments[intent_object][0].status === "COMPLETED") {
+                //     //   send_email_receipt({"id": json.id, "email": req.body.email});
+                //     console.log("json",json);
                     
-                    }
-                    res.send(json);
+                //     }
+                //     res.send(json);
                 }) //Send minimal data to client
         })
         .catch(err => {
-            console.log(err);
+            console.log("error 3->",err);
             res.status(500).send(err)
         })
 });
