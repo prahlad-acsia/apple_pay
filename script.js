@@ -392,9 +392,8 @@ is_user_logged_in()
                   email: apple_pay_email,
                 }),
               })
-                .then((response) => {
-                  console.log("complete order response.json()--> ",response.json());
-                  response.json()}
+                .then((response) => 
+                  response.json()
                 )
                 .then((order_details) => {
                   console.error("order_details-->",order_details);
