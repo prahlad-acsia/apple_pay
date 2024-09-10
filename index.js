@@ -40,7 +40,7 @@ app.post('/create_order', (req, res) => {
                 'purchase_units': [{
                     'amount': {
                         'currency_code': 'USD',
-                        'value': '1.0'
+                        'value': '1.5'
                     }
                 }]
             };
