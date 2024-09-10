@@ -461,7 +461,7 @@ is_user_logged_in()
         total: {
           label: "Schon",
           type: "final",
-          amount: "2.0",
+          amount: "1.5",
         },
       };
       current_ap_session = new ApplePaySession(4, payment_request);
