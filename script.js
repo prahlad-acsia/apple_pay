@@ -363,11 +363,7 @@ is_user_logged_in()
         headers: { "Content-Type": "application/json; charset=utf-8" },
         body: JSON.stringify({ intent: intent }),
       })
-        .then((response) => 
-          {
-            // console.log("create order response...-->",response);
-            // console.log("create order response.json()-->",response.json()?.result);
-            response.text()})
+        .then((response) =>  response.json())
         .then((pp_data) => {
           console.log("pp_data-->",pp_data);
           pp_order_id = pp_data?.id;
